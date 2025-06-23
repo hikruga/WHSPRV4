@@ -157,9 +157,7 @@ export default function Component() {
             </div>
             <div className="bg-black/60 border border-cyan-500/20 rounded-lg p-4 backdrop-blur-[0.5rem] shadow-lg shadow-cyan-500/10 description-box">
               <p className="text-white text-sm leading-relaxed">
-                WHSPR provides real-time intelligence on emerging memecoin opportunities through specialized monitoring systems. 
-                Our advanced analytics track market momentum, liquidity patterns, and social sentiment to identify high-potential 
-                tokens across different market phases, from early launches to established performers.
+                WHSPR utilizes both AI and Algorithmic analysis to cut through memecoin market noise. Our intelligent monitoring systems process thousands of data points in real-time to identify genuine opportunities across all market phases.
               </p>
             </div>
           </div>

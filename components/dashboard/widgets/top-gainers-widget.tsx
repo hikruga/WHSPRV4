@@ -270,6 +270,12 @@ export function TopGainersWidget({ onCoinClick, gridLayout }: TopGainersWidgetPr
     window.open(url, '_blank')
   }
 
+  const handleCopySymbol = (symbol: string, e: React.MouseEvent) => {
+    e.stopPropagation()
+    navigator.clipboard.writeText(symbol)
+    // You could add a toast notification here if you want
+  }
+
   return (
     <div 
       ref={containerRef} 
@@ -286,11 +292,11 @@ export function TopGainersWidget({ onCoinClick, gridLayout }: TopGainersWidgetPr
       {tokensData.slice(0, visibleTokens).map((token) => (
         <div
           key={token.symbol}
-          className="flex items-center justify-between p-2 rounded-lg bg-gradient-to-r from-green-500/10 to-transparent border border-green-500/20 cursor-pointer hover:bg-green-500/20 transition-all duration-200"
+          className="flex items-center justify-between p-2 rounded-lg bg-gradient-to-r from-cyan-500/10 to-transparent border border-cyan-500/20 cursor-pointer hover:bg-cyan-500/20 transition-all duration-200"
           onClick={() => onCoinClick(token.symbol)}
         >
             <div className="flex items-center gap-2 min-w-0 flex-1">
-              <div className="w-8 h-8 rounded-lg overflow-hidden border border-green-400 shadow-lg shadow-green-500/30 flex-shrink-0">
+              <div className="w-8 h-8 rounded-lg overflow-hidden border border-cyan-400 shadow-lg shadow-cyan-500/30 flex-shrink-0">
                 <img
                   src={token.image}
                   alt={token.symbol}
@@ -302,7 +308,22 @@ export function TopGainersWidget({ onCoinClick, gridLayout }: TopGainersWidgetPr
                 />
               </div>
               <div className="flex flex-col min-w-0 flex-1">
-                <span className="text-xs text-white font-semibold truncate">{token.symbol}</span>
+                <div className="flex items-center gap-1">
+                  <span className="text-xs text-white font-semibold truncate">{token.symbol}</span>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <button
+                        onClick={(e) => handleCopySymbol(token.symbol, e)}
+                        className="p-1 hover:bg-white/10 rounded transition-colors flex-shrink-0"
+                      >
+                        <img src="/copy-svgrepo-com.svg" alt="Copy" width={12} height={12} className="opacity-60 hover:opacity-100" />
+                      </button>
+                    </TooltipTrigger>
+                    <TooltipContent side="top">
+                      <p className="text-xs">Copy symbol</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
                 <span className="text-xs text-gray-400 truncate">{token.name}</span>
               </div>
             </div>
@@ -310,7 +331,7 @@ export function TopGainersWidget({ onCoinClick, gridLayout }: TopGainersWidgetPr
             {selectedTokenForTrading === token.symbol ? (
               <div className="flex flex-col items-end gap-2 flex-shrink-0">
                 {/* SVG Buttons Container */}
-                <div className="flex items-center gap-2 bg-black/40 rounded-lg p-2 border border-green-500/20">
+                <div className="flex items-center gap-2 bg-black/40 rounded-lg p-2 border border-cyan-500/20">
                   {/* Axiom */}
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -412,7 +433,7 @@ export function TopGainersWidget({ onCoinClick, gridLayout }: TopGainersWidgetPr
                 <Button
                   size="sm"
                   variant="outline"
-                  className="h-6 px-2 text-xs bg-emerald-500/10 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 cursor-pointer"
+                  className="h-6 px-2 text-xs bg-cyan-500/10 border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20 cursor-pointer"
                   onClick={(e) => handleTradeClick(token.symbol, e)}
                   onMouseDown={(e) => handleTradeClick(token.symbol, e)}
                 >
@@ -422,21 +443,21 @@ export function TopGainersWidget({ onCoinClick, gridLayout }: TopGainersWidgetPr
             ) : (
               <div className="flex items-center gap-2 flex-shrink-0">
                 <div className="text-right">
-                  <div className="text-xs text-emerald-300">Volume</div>
-                  <div className="text-xs text-emerald-400 font-semibold">{token.volume}</div>
+                  <div className="text-xs text-cyan-300">Volume</div>
+                  <div className="text-xs text-cyan-400 font-semibold">{token.volume}</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs text-emerald-300">MC</div>
-                  <div className="text-xs text-emerald-400 font-semibold">{token.mcap}</div>
+                  <div className="text-xs text-cyan-300">MC</div>
+                  <div className="text-xs text-cyan-400 font-semibold">{token.mcap}</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs text-emerald-300">{token.change}</div>
-                  <div className="text-xs text-emerald-400 font-semibold">{token.price}</div>
+                  <div className="text-xs text-cyan-300">{token.change}</div>
+                  <div className="text-xs text-cyan-400 font-semibold">{token.price}</div>
                 </div>
                 <Button
                   size="sm"
                   variant="outline"
-                  className="h-6 px-2 text-xs bg-emerald-500/10 border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 cursor-pointer"
+                  className="h-6 px-2 text-xs bg-cyan-500/10 border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20 cursor-pointer"
                   onClick={(e) => handleTradeClick(token.symbol, e)}
                   onMouseDown={(e) => handleTradeClick(token.symbol, e)}
                 >

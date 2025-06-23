@@ -40,13 +40,13 @@ export function CustomizableDashboard({ onCoinClick }: CustomizableDashboardProp
   // Default layout for initial widgets
   const getDefaultLayout = useCallback((): Layout[] => {
     return [
-      { i: 'top-gainers', x: 0, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
-      { i: 'hourly-performers', x: 3, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
-      { i: 'volume-spike', x: 6, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
-      { i: 'strong-survivors', x: 9, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
-      { i: 'momentum-gainers', x: 0, y: 4, w: 3, h: 4, minW: 2, minH: 3 },
-      { i: 'holder-gainer', x: 3, y: 4, w: 3, h: 4, minW: 2, minH: 3 },
-      { i: 'big-dips', x: 6, y: 4, w: 3, h: 4, minW: 2, minH: 3 },
+      { i: 'volume-spike', x: 0, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
+      { i: 'strong-survivors', x: 3, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
+      { i: 'momentum-gainers', x: 6, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
+      { i: 'holder-gainer', x: 9, y: 0, w: 3, h: 4, minW: 2, minH: 3 },
+      { i: 'big-dips', x: 0, y: 4, w: 3, h: 4, minW: 2, minH: 3 },
+      { i: 'hourly-performers', x: 3, y: 4, w: 3, h: 4, minW: 2, minH: 3 },
+      { i: 'top-gainers', x: 6, y: 4, w: 3, h: 4, minW: 2, minH: 3 },
       { i: 'worst-performers', x: 9, y: 4, w: 3, h: 4, minW: 2, minH: 3 }
     ]
   }, [])

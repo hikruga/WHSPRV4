@@ -270,6 +270,12 @@ export function WorstPerformersWidget({ onCoinClick, gridLayout }: WorstPerforme
     window.open(url, '_blank')
   }
 
+  const handleCopySymbol = (symbol: string, e: React.MouseEvent) => {
+    e.stopPropagation()
+    navigator.clipboard.writeText(symbol)
+    // You could add a toast notification here if you want
+  }
+
   return (
     <div 
       ref={containerRef} 
@@ -285,11 +291,11 @@ export function WorstPerformersWidget({ onCoinClick, gridLayout }: WorstPerforme
       {tokensData.slice(0, visibleTokens).map((token) => (
         <div
           key={token.symbol}
-          className="flex items-center justify-between p-2 rounded-lg bg-gradient-to-r from-red-500/10 to-transparent border border-red-500/20 cursor-pointer hover:bg-red-500/20 transition-all duration-200"
+          className="flex items-center justify-between p-2 rounded-lg bg-gradient-to-r from-teal-500/10 to-transparent border border-teal-500/20 cursor-pointer hover:bg-teal-500/20 transition-all duration-200"
           onClick={() => onCoinClick(token.symbol)}
         >
           <div className="flex items-center gap-2 min-w-0 flex-1">
-            <div className="w-8 h-8 rounded-lg overflow-hidden border border-red-400 shadow-lg shadow-red-500/30 flex-shrink-0">
+            <div className="w-8 h-8 rounded-lg overflow-hidden border border-teal-400 shadow-lg shadow-teal-500/30 flex-shrink-0">
               <img
                 src={token.image}
                 alt={token.symbol}
@@ -301,7 +307,22 @@ export function WorstPerformersWidget({ onCoinClick, gridLayout }: WorstPerforme
               />
             </div>
             <div className="flex flex-col min-w-0 flex-1">
-              <span className="text-xs text-white font-semibold truncate">{token.symbol}</span>
+              <div className="flex items-center gap-1">
+                <span className="text-xs text-white font-semibold truncate">{token.symbol}</span>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={(e) => handleCopySymbol(token.symbol, e)}
+                      className="p-1 hover:bg-white/10 rounded transition-colors flex-shrink-0"
+                    >
+                      <img src="/copy-svgrepo-com.svg" alt="Copy" width={12} height={12} className="opacity-60 hover:opacity-100" />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent side="top">
+                    <p className="text-xs">Copy symbol</p>
+                  </TooltipContent>
+                </Tooltip>
+              </div>
               <span className="text-xs text-gray-400 truncate">{token.name}</span>
             </div>
           </div>
@@ -309,17 +330,17 @@ export function WorstPerformersWidget({ onCoinClick, gridLayout }: WorstPerforme
           {selectedTokenForTrading === token.symbol ? (
             <div className="flex flex-col items-end gap-2 flex-shrink-0">
               {/* SVG Buttons Container */}
-              <div className="flex items-center gap-2 bg-black/40 rounded-lg p-2 border border-red-500/20">
+              <div className="flex items-center gap-2 bg-black/40 rounded-lg p-2 border border-teal-500/20">
                 {/* Axiom */}
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <button
                       onClick={(e) => handlePlatformClick('https://axiom.trade', token, e)}
-                      className="p-2 bg-red-500/20 hover:bg-red-500/30 border border-red-500/30 rounded-lg transition-colors"
+                      className="p-2 bg-teal-500/20 hover:bg-teal-500/30 border border-teal-500/30 rounded-lg transition-colors"
                     >
                       <svg width="16" height="16" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M24.1384 17.3876H11.8623L18.0001 7.00012L24.1384 17.3876Z" fill="#EF4444"/>
-                        <path d="M31 29.0003L5 29.0003L9.96764 20.5933L26.0324 20.5933L31 29.0003Z" fill="#EF4444"/>
+                        <path d="M24.1384 17.3876H11.8623L18.0001 7.00012L24.1384 17.3876Z" fill="#14B8A6"/>
+                        <path d="M31 29.0003L5 29.0003L9.96764 20.5933L26.0324 20.5933L31 29.0003Z" fill="#14B8A6"/>
                       </svg>
                     </button>
                   </TooltipTrigger>
@@ -411,7 +432,7 @@ export function WorstPerformersWidget({ onCoinClick, gridLayout }: WorstPerforme
               <Button
                 size="sm"
                 variant="outline"
-                className="h-6 px-2 text-xs bg-red-500/10 border-red-500/30 text-red-400 hover:bg-red-500/20 cursor-pointer"
+                className="h-6 px-2 text-xs bg-teal-500/10 border-teal-500/30 text-teal-400 hover:bg-teal-500/20 cursor-pointer"
                 onClick={(e) => handleTradeClick(token.symbol, e)}
                 onMouseDown={(e) => handleTradeClick(token.symbol, e)}
               >
@@ -421,21 +442,21 @@ export function WorstPerformersWidget({ onCoinClick, gridLayout }: WorstPerforme
           ) : (
             <div className="flex items-center gap-2 flex-shrink-0">
               <div className="text-right">
-                <div className="text-xs text-red-300">Volume</div>
-                <div className="text-xs text-red-400 font-semibold">{token.volume}</div>
+                <div className="text-xs text-teal-300">Volume</div>
+                <div className="text-xs text-teal-400 font-semibold">{token.volume}</div>
               </div>
               <div className="text-right">
-                <div className="text-xs text-red-300">MC</div>
-                <div className="text-xs text-red-400 font-semibold">{token.mcap}</div>
+                <div className="text-xs text-teal-300">MC</div>
+                <div className="text-xs text-teal-400 font-semibold">{token.mcap}</div>
               </div>
               <div className="text-right">
-                <div className="text-xs text-red-300">{token.change}</div>
-                <div className="text-xs text-red-400 font-semibold">{token.price}</div>
+                <div className="text-xs text-teal-300">{token.change}</div>
+                <div className="text-xs text-teal-400 font-semibold">{token.price}</div>
               </div>
               <Button
                 size="sm"
                 variant="outline"
-                className="h-6 px-2 text-xs bg-red-500/10 border-red-500/30 text-red-400 hover:bg-red-500/20 cursor-pointer"
+                className="h-6 px-2 text-xs bg-teal-500/10 border-teal-500/30 text-teal-400 hover:bg-teal-500/20 cursor-pointer"
                 onClick={(e) => handleTradeClick(token.symbol, e)}
                 onMouseDown={(e) => handleTradeClick(token.symbol, e)}
               >
@@ -452,10 +473,10 @@ export function WorstPerformersWidget({ onCoinClick, gridLayout }: WorstPerforme
 <style jsx>{`
   @keyframes pulse-subtle {
     0%, 100% {
-      box-shadow: 0 0 5px rgba(239, 68, 68, 0.2);
+      box-shadow: 0 0 5px rgba(20, 184, 166, 0.2);
     }
     50% {
-      box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+      box-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
     }
   }
   

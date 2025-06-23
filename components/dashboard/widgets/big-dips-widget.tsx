@@ -270,6 +270,12 @@ export function BigDipsWidget({ onCoinClick, gridLayout }: BigDipsWidgetProps) {
     window.open(url, '_blank')
   }
 
+  const handleCopySymbol = (symbol: string, e: React.MouseEvent) => {
+    e.stopPropagation()
+    navigator.clipboard.writeText(symbol)
+    // You could add a toast notification here if you want
+  }
+
   return (
     <div 
       ref={containerRef} 
@@ -301,7 +307,22 @@ export function BigDipsWidget({ onCoinClick, gridLayout }: BigDipsWidgetProps) {
               />
             </div>
             <div className="flex flex-col min-w-0 flex-1">
-              <span className="text-xs text-white font-semibold truncate">{token.symbol}</span>
+              <div className="flex items-center gap-1">
+                <span className="text-xs text-white font-semibold truncate">{token.symbol}</span>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={(e) => handleCopySymbol(token.symbol, e)}
+                      className="p-1 hover:bg-white/10 rounded transition-colors flex-shrink-0"
+                    >
+                      <img src="/copy-svgrepo-com.svg" alt="Copy" width={12} height={12} className="opacity-60 hover:opacity-100" />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent side="top">
+                    <p className="text-xs">Copy symbol</p>
+                  </TooltipContent>
+                </Tooltip>
+              </div>
               <span className="text-xs text-gray-400 truncate">{token.name}</span>
             </div>
           </div>

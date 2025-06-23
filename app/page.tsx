@@ -75,6 +75,7 @@ export default function HomePage() {
 
       {/* Animated Particles */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        {/* Original particles */}
         <div className="particle particle-1"></div>
         <div className="particle particle-2"></div>
         <div className="particle particle-3"></div>
@@ -83,6 +84,28 @@ export default function HomePage() {
         <div className="particle particle-6"></div>
         <div className="particle particle-7"></div>
         <div className="particle particle-8"></div>
+        
+        {/* Logo area particles - more concentrated around the center */}
+        <div className="logo-particle logo-particle-1"></div>
+        <div className="logo-particle logo-particle-2"></div>
+        <div className="logo-particle logo-particle-3"></div>
+        <div className="logo-particle logo-particle-4"></div>
+        <div className="logo-particle logo-particle-5"></div>
+        <div className="logo-particle logo-particle-6"></div>
+        <div className="logo-particle logo-particle-7"></div>
+        <div className="logo-particle logo-particle-8"></div>
+        <div className="logo-particle logo-particle-9"></div>
+        <div className="logo-particle logo-particle-10"></div>
+        <div className="logo-particle logo-particle-11"></div>
+        <div className="logo-particle logo-particle-12"></div>
+        
+        {/* Floating sparkles */}
+        <div className="sparkle sparkle-1"></div>
+        <div className="sparkle sparkle-2"></div>
+        <div className="sparkle sparkle-3"></div>
+        <div className="sparkle sparkle-4"></div>
+        <div className="sparkle sparkle-5"></div>
+        <div className="sparkle sparkle-6"></div>
       </div>
 
       {/* Scanning Lines */}
@@ -304,7 +327,7 @@ export default function HomePage() {
           left: 80%;
           animation-delay: -2s;
           animation-duration: 18s;
-          background: radial-gradient(circle, rgba(168, 85, 247, 0.8) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
         }
 
         .particle-3 {
@@ -312,7 +335,7 @@ export default function HomePage() {
           left: 20%;
           animation-delay: -4s;
           animation-duration: 14s;
-          background: radial-gradient(circle, rgba(34, 197, 94, 0.8) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, transparent 70%);
         }
 
         .particle-4 {
@@ -320,7 +343,7 @@ export default function HomePage() {
           left: 70%;
           animation-delay: -6s;
           animation-duration: 16s;
-          background: radial-gradient(circle, rgba(236, 72, 153, 0.8) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
         }
 
         .particle-5 {
@@ -328,7 +351,7 @@ export default function HomePage() {
           left: 50%;
           animation-delay: -8s;
           animation-duration: 20s;
-          background: radial-gradient(circle, rgba(251, 191, 36, 0.8) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, transparent 70%);
         }
 
         .particle-6 {
@@ -336,7 +359,7 @@ export default function HomePage() {
           left: 90%;
           animation-delay: -10s;
           animation-duration: 13s;
-          background: radial-gradient(circle, rgba(99, 102, 241, 0.8) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
         }
 
         .particle-7 {
@@ -344,7 +367,7 @@ export default function HomePage() {
           left: 5%;
           animation-delay: -12s;
           animation-duration: 17s;
-          background: radial-gradient(circle, rgba(239, 68, 68, 0.8) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, transparent 70%);
         }
 
         .particle-8 {
@@ -571,6 +594,257 @@ export default function HomePage() {
 .cta-button {
   transform-origin: center;
 }
+
+/* Logo area particles - concentrated around the center */
+.logo-particle {
+  position: fixed;
+  border-radius: 50%;
+  animation: logoFloat 8s infinite linear;
+  opacity: 1;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.logo-particle-1 {
+  width: 8px;
+  height: 8px;
+  top: 40vh;
+  left: 45vw;
+  background: radial-gradient(circle, rgba(6, 182, 212, 1) 0%, transparent 70%);
+  animation-delay: 0s;
+  animation-duration: 6s;
+}
+
+.logo-particle-2 {
+  width: 6px;
+  height: 6px;
+  top: 45vh;
+  left: 55vw;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, transparent 70%);
+  animation-delay: -1s;
+  animation-duration: 7s;
+}
+
+.logo-particle-3 {
+  width: 10px;
+  height: 10px;
+  top: 50vh;
+  left: 35vw;
+  background: radial-gradient(circle, rgba(6, 182, 212, 1) 0%, transparent 70%);
+  animation-delay: -2s;
+  animation-duration: 8s;
+}
+
+.logo-particle-4 {
+  width: 7px;
+  height: 7px;
+  top: 55vh;
+  left: 65vw;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, transparent 70%);
+  animation-delay: -3s;
+  animation-duration: 9s;
+}
+
+.logo-particle-5 {
+  width: 8px;
+  height: 8px;
+  top: 60vh;
+  left: 45vw;
+  background: radial-gradient(circle, rgba(6, 182, 212, 1) 0%, transparent 70%);
+  animation-delay: -4s;
+  animation-duration: 7s;
+}
+
+.logo-particle-6 {
+  width: 6px;
+  height: 6px;
+  top: 35vh;
+  left: 55vw;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, transparent 70%);
+  animation-delay: -5s;
+  animation-duration: 6s;
+}
+
+.logo-particle-7 {
+  width: 9px;
+  height: 9px;
+  top: 65vh;
+  left: 35vw;
+  background: radial-gradient(circle, rgba(6, 182, 212, 1) 0%, transparent 70%);
+  animation-delay: -6s;
+  animation-duration: 8s;
+}
+
+.logo-particle-8 {
+  width: 7px;
+  height: 7px;
+  top: 70vh;
+  left: 50vw;
+  background: radial-gradient(circle, rgba(6, 182, 212, 1) 0%, transparent 70%);
+  animation-delay: -7s;
+  animation-duration: 7s;
+}
+
+.logo-particle-9 {
+  width: 8px;
+  height: 8px;
+  top: 30vh;
+  left: 50vw;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, transparent 70%);
+  animation-delay: -8s;
+  animation-duration: 9s;
+}
+
+.logo-particle-10 {
+  width: 6px;
+  height: 6px;
+  top: 75vh;
+  left: 40vw;
+  background: radial-gradient(circle, rgba(6, 182, 212, 1) 0%, transparent 70%);
+  animation-delay: -9s;
+  animation-duration: 6s;
+}
+
+.logo-particle-11 {
+  width: 10px;
+  height: 10px;
+  top: 25vh;
+  left: 40vw;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, transparent 70%);
+  animation-delay: -10s;
+  animation-duration: 8s;
+}
+
+.logo-particle-12 {
+  width: 7px;
+  height: 7px;
+  top: 80vh;
+  left: 60vw;
+  background: radial-gradient(circle, rgba(6, 182, 212, 1) 0%, transparent 70%);
+  animation-delay: -11s;
+  animation-duration: 7s;
+}
+
+/* Floating sparkles */
+.sparkle {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  animation: sparkleFloat 12s infinite linear;
+  opacity: 1;
+  z-index: 5;
+  pointer-events: none;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.sparkle-1 {
+  top: 30vh;
+  left: 30vw;
+  animation-delay: 0s;
+  animation-duration: 10s;
+}
+
+.sparkle-2 {
+  top: 70vh;
+  left: 70vw;
+  animation-delay: -2s;
+  animation-duration: 12s;
+}
+
+.sparkle-3 {
+  top: 20vh;
+  left: 80vw;
+  animation-delay: -4s;
+  animation-duration: 11s;
+}
+
+.sparkle-4 {
+  top: 80vh;
+  left: 20vw;
+  animation-delay: -6s;
+  animation-duration: 13s;
+}
+
+.sparkle-5 {
+  top: 40vh;
+  left: 70vw;
+  animation-delay: -8s;
+  animation-duration: 9s;
+}
+
+.sparkle-6 {
+  top: 60vh;
+  left: 30vw;
+  animation-delay: -10s;
+  animation-duration: 14s;
+}
+
+@keyframes logoFloat {
+  0% {
+    transform: translateY(20vh) translateX(-20px) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(15vh) translateX(-10px) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0vh) translateX(0px) scale(1.5);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(-15vh) translateX(10px) scale(1);
+  }
+  100% {
+    transform: translateY(-20vh) translateX(20px) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkleFloat {
+  0% {
+    transform: translateY(25vh) translateX(-25px) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(20vh) translateX(-15px) scale(1) rotate(90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0vh) translateX(0px) scale(2) rotate(180deg);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(-20vh) translateX(15px) scale(1) rotate(270deg);
+  }
+  100% {
+    transform: translateY(-25vh) translateX(25px) scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+          0% {
+            transform: translateY(100vh) translateX(0px) scale(0);
+            opacity: 0;
+          }
+          10% {
+            opacity: 1;
+            transform: translateY(90vh) translateX(10px) scale(1);
+          }
+          90% {
+            opacity: 1;
+            transform: translateY(-10vh) translateX(-10px) scale(1);
+          }
+          100% {
+            transform: translateY(-20vh) translateX(0px) scale(0);
+            opacity: 0;
+          }
+        }
       `}</style>
     </div>
   )
