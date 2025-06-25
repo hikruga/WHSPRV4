@@ -106,76 +106,70 @@ export function WidgetLibraryPanel({ isOpen, onClose, onAddWidget, activeWidgets
               </div>
             )}
 
-            {/* Available Widgets Section */}
-            {Object.entries(categorizedWidgets).map(([category, widgets]) => (
-              <div key={category}>
-                <h3 className={`text-sm font-semibold mb-3 ${WIDGET_CATEGORIES[category as keyof typeof WIDGET_CATEGORIES].color}`}>
-                  {WIDGET_CATEGORIES[category as keyof typeof WIDGET_CATEGORIES].label}
-                </h3>
-                
-                <div className="space-y-3">
-                  {widgets.map(widget => {
-                    const isActive = activeWidgets.includes(widget.id)
-                    const isHidden = hiddenWidgets.includes(widget.id)
-                    const IconComponent = widget.icon
-                    
-                    // Don't show widgets that are hidden in the main library
-                    if (isHidden) return null
-                    
-                    return (
-                      <Card
-                        key={widget.id}
-                        className={`bg-black/60 border transition-all duration-200 cursor-pointer hover:scale-[1.02] ${
-                          isActive 
-                            ? 'border-gray-500/40 opacity-50' 
-                            : `${widget.borderColor} hover:${widget.shadowColor} hover:shadow-lg`
-                        }`}
-                      >
-                        <CardContent className="p-4">
-                          <div className="flex items-start justify-between mb-2">
-                            <div className="flex items-center gap-2">
-                              <IconComponent className={`h-4 w-4 ${widget.color}`} />
-                              <span className="font-semibold text-white text-sm">{widget.title}</span>
-                            </div>
-                            <Badge variant="outline" className="text-xs">
-                              {widget.defaultSize.w}x{widget.defaultSize.h}
-                            </Badge>
+            {/* Available Widgets Section - Flat List */}
+            <div>
+              <div className="space-y-3">
+                {AVAILABLE_WIDGETS.map(widget => {
+                  const isActive = activeWidgets.includes(widget.id)
+                  const isHidden = hiddenWidgets.includes(widget.id)
+                  const IconComponent = widget.icon
+                  
+                  // Don't show widgets that are hidden in the main library
+                  if (isHidden) return null
+                  
+                  return (
+                    <Card
+                      key={widget.id}
+                      className={`bg-black/60 border transition-all duration-200 cursor-pointer hover:scale-[1.02] ${
+                        isActive 
+                          ? 'border-gray-500/40 opacity-50' 
+                          : `${widget.borderColor} hover:${widget.shadowColor} hover:shadow-lg`
+                      }`}
+                    >
+                      <CardContent className="p-4">
+                        <div className="flex items-start justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <IconComponent className={`h-4 w-4 ${widget.color}`} />
+                            <span className="font-semibold text-white text-sm">{widget.title}</span>
                           </div>
-                          
-                          <p className="text-xs text-gray-400 mb-3 leading-relaxed">
-                            {widget.description}
-                          </p>
-                          
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className={
-                              isActive
-                                ? "w-full opacity-50 cursor-not-allowed border-gray-500/40 text-gray-500"
-                                : `w-full ${widget.borderColor.replace('border-', 'border-')} ${widget.color} hover:bg-opacity-10`
-                            }
-                            onClick={() => !isActive && onAddWidget(widget.id)}
-                            disabled={isActive}
-                          >
-                            {isActive ? (
-                              <>
-                                <Grid3X3 className="h-3 w-3 mr-2" />
-                                Already Added
-                              </>
-                            ) : (
-                              <>
-                                <Plus className="h-3 w-3 mr-2" />
-                                Add Widget
-                              </>
-                            )}
-                          </Button>
-                        </CardContent>
-                      </Card>
-                    )
-                  })}
-                </div>
+                          <Badge variant="outline" className="text-xs">
+                            {widget.defaultSize.w}x{widget.defaultSize.h}
+                          </Badge>
+                        </div>
+                        
+                        <p className="text-xs text-gray-400 mb-3 leading-relaxed">
+                          {widget.description}
+                        </p>
+                        
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className={
+                            isActive
+                              ? "w-full opacity-50 cursor-not-allowed border-gray-500/40 text-gray-500"
+                              : `w-full ${widget.borderColor.replace('border-', 'border-')} ${widget.color} hover:bg-opacity-10`
+                          }
+                          onClick={() => !isActive && onAddWidget(widget.id)}
+                          disabled={isActive}
+                        >
+                          {isActive ? (
+                            <>
+                              <Grid3X3 className="h-3 w-3 mr-2" />
+                              Already Added
+                            </>
+                          ) : (
+                            <>
+                              <Plus className="h-3 w-3 mr-2" />
+                              Add Widget
+                            </>
+                          )}
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  )
+                })}
               </div>
-            ))}
+            </div>
           </div>
           
           {/* Footer */}

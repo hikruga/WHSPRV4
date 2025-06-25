@@ -24,8 +24,8 @@ export const AVAILABLE_WIDGETS: WidgetConfig[] = [
     description: 'New tokens launched within the last 2 hours showing healthy volume, holder growth, and stable price action.',
     icon: TrendingUp,
     color: 'text-cyan-400',
-    borderColor: 'border-cyan-500/20',
-    shadowColor: 'shadow-cyan-500/10',
+    borderColor: 'border-amber-500/20',
+    shadowColor: 'shadow-amber-500/10',
     defaultSize: { w: 3, h: 4 },
     minSize: { w: 2, h: 3 },
     category: 'market'

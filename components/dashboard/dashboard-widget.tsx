@@ -53,7 +53,7 @@ export function DashboardWidget({ widget, onCoinClick, onRemove, isCustomMode, g
   }
 
   return (
-    <Card className={`h-full bg-black/80 border transition-all duration-300 backdrop-blur-[0.5rem] group ${widget.borderColor} ${widget.shadowColor} hover:shadow-lg hover:shadow-opacity-20 ${isCustomMode ? 'cursor-move' : ''} ${widget.type === 'top-gainers' || widget.type === 'hourly-performers' ? 'z-50' : ''}`}>
+    <Card className={`h-full bg-black/80 border transition-all duration-300 backdrop-blur-[0.5rem] group ${widget.borderColor} ${widget.shadowColor} hover:shadow-lg hover:shadow-opacity-20 ${isCustomMode ? 'cursor-move' : ''} ${widget.type === 'top-gainers' || widget.type === 'hourly-performers' ? 'z-[99999]' : ''}`}>
       <CardHeader className="pb-3 relative">
         <CardTitle className={`text-sm font-semibold flex items-center justify-between ${widget.color}`}>
           <Tooltip>
@@ -66,6 +66,7 @@ export function DashboardWidget({ widget, onCoinClick, onRemove, isCustomMode, g
             <TooltipContent
               side="top"
               className={`max-w-xs bg-black border ${widget.borderColor.replace('border-', 'border-')} shadow-lg ${widget.shadowColor} ${widget.color}`}
+              style={{ zIndex: 999999 }}
             >
               <p className="text-sm text-gray-300">
                 {widget.description}

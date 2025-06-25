@@ -121,3 +121,12 @@
 .custom-scrollbar::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+/* Ensure tooltips always appear on top */
+[data-radix-popper-content-wrapper] {
+  z-index: 999999 !important;
+}
+
+[data-radix-tooltip-content] {
+  z-index: 999999 !important;
+}
