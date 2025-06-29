@@ -152,8 +152,9 @@ export function CustomizableDashboard({ onCoinClick }: CustomizableDashboardProp
     localStorage.setItem('whspr-dashboard-layout', JSON.stringify(layouts))
     localStorage.setItem('whspr-dashboard-widgets', JSON.stringify(activeWidgets))
     localStorage.setItem('whspr-dashboard-hidden-widgets', JSON.stringify(hiddenWidgets))
-    // Show success message
+    // Show success message and exit custom mode
     alert('Dashboard layout saved!')
+    setIsCustomMode(false)
   }, [layouts, activeWidgets, hiddenWidgets])
 
 

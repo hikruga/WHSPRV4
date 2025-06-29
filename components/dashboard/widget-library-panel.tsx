@@ -54,7 +54,7 @@ export function WidgetLibraryPanel({ isOpen, onClose, onAddWidget, activeWidgets
           </div>
           
           {/* Content */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-6 custom-scrollbar">
+          <div className="flex-1 overflow-y-auto p-4 space-y-6">
             {/* Hidden Widgets Section */}
             {hiddenWidgets.length > 0 && (
               <div>

@@ -320,38 +320,6 @@ export default function Component() {
   transition: all 0.3s ease;
 }
 
-/* Custom Scrollbar - Radix UI inspired */
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(168, 85, 247, 0.5) rgba(0, 0, 0, 0.2);
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  margin: 2px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, rgba(168, 85, 247, 0.5), rgba(139, 92, 246, 0.5));
-  border-radius: 3px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.15);
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, rgba(168, 85, 247, 0.7), rgba(139, 92, 246, 0.7));
-}
-
-.custom-scrollbar::-webkit-scrollbar-corner {
-  background: transparent;
-}
-
 @keyframes gradient-x {
   0%, 100% {
     background-position: 0% 50%;

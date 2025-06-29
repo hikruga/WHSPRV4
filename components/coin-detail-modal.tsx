@@ -3,6 +3,7 @@ import { X } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { useEffect, useRef } from "react"
 import { TokenChart } from "@/components/token-chart"
 
@@ -2315,6 +2316,12 @@ export function CoinDetailModal({ isOpen, onClose, coinSymbol }: CoinDetailModal
   // Update the component to use the dynamic data
   const coinData = getCoinData(coinSymbol)
 
+  const handleCopySymbol = (symbol: string, e: React.MouseEvent) => {
+    e.stopPropagation()
+    navigator.clipboard.writeText(symbol)
+    // You could add a toast notification here if you want
+  }
+
   if (!isOpen) return null
 
   return (
@@ -2341,7 +2348,15 @@ export function CoinDetailModal({ isOpen, onClose, coinSymbol }: CoinDetailModal
                 />
                 <div>
                   <h2 className="text-2xl font-bold text-white">{coinData.name}</h2>
-                  <div className="text-sm text-zinc-400">{coinData.symbol}</div>
+                  <div className="flex items-center gap-2">
+                    <div className="text-sm text-zinc-400">{coinData.symbol}</div>
+                    <button
+                      onClick={(e) => handleCopySymbol(coinData.symbol, e)}
+                      className="p-1 rounded flex-shrink-0"
+                    >
+                      <img src="/copy-svgrepo-com.svg" alt="Copy" width={14} height={14} className="opacity-60 filter invert brightness-0" />
+                    </button>
+                  </div>
                 </div>
               </div>
               <div className="flex gap-2">
