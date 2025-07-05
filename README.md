@@ -1,20 +1,20 @@
 # WHSPR AI Trading Platform
 
-A modern, responsive web application for cryptocurrency trading and market analysis powered by AI.
+A modern cryptocurrency trading platform featuring AI-powered calls, team insights, and real-time market data.
 
 ## Features
 
-- **WHSPR AI Calls**: AI-driven cryptocurrency trading signals and recommendations
-- **Team Calls**: Expert-curated trading opportunities with detailed analysis
-- **Smart Wallets**: Track and analyze wallet activity
-- **Trench Monitors**: Real-time market monitoring tools
+- **WHSPR Calls**: AI-powered trading signals with performance tracking
+- **Team Calls**: Expert trading team insights and opportunities
+- **Interactive UI**: Modern, responsive design with animated components
+- **Trading Integration**: Connect directly to multiple trading platforms
 
 ## Tech Stack
 
 - Next.js
 - React
 - Tailwind CSS
-- Shadcn UI
+- Radix UI Components
 - GSAP Animations
 
 ## Getting Started
@@ -23,12 +23,16 @@ A modern, responsive web application for cryptocurrency trading and market analy
 # Install dependencies
 npm install
 
-# Run the development server
+# Run development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## License
 
-## Deployment
-
-This project is optimized for deployment on Vercel. 
+This project is proprietary software. 
